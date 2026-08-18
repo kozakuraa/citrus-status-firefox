@@ -24,4 +24,4 @@ Adds emoji status indicators and activity-level solved fractions to the UPD Onli
 4. Click **Load unpacked** and select the `Citrus_Status` folder.
 
 ## License
-GNU GENERAL PUBLIC LICENSE Version 3
+GNU GENERAL PUBLIC LICENSE Version 3# citrus-status-firefox
