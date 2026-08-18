@@ -26,7 +26,7 @@ Adds emoji status indicators and activity-level solved fractions to the UPD Onli
 This extension must be loaded for every time you load Firefox.
 
 ## Acknowledgements
-This is simply a Firefox port of the [Citrus-Status extension](https://github.com/Imaginatorix/Citrus-Status) by Imaginatronix. Thank you very much for this extension!
+This is simply a Firefox port of the [Citrus-Status extension](https://github.com/Imaginatorix/Citrus-Status) by Imaginatronix. Made this for personal use. All credits go to him. Thank you very much for this extension!
 
 ## License
 GNU GENERAL PUBLIC LICENSE Version 3
