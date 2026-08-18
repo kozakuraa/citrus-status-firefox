@@ -1,29 +1,35 @@
 // Background service worker for Citrus Status
-chrome.runtime.onInstalled.addListener(() => {
+
+browser.runtime.onInstalled.addListener(() => {
   console.log("Citrus Status installed.");
 });
 
-// Message hub if needed later
-chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+browser.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg && msg.type === "getAllStatuses") {
-    chrome.storage.local.get(["citrus_statuses"], data => {
+    browser.storage.local.get(["citrus_statuses"]).then(data => {
       sendResponse(data.citrus_statuses || {});
     });
-    return true; // async
+    return true;
   }
 
   if (msg && msg.type === "setStatus") {
-    const newStatus = msg.status; // an object { contestName: { problemId: statusObj } }
+    const newStatus = msg.status;
 
-    chrome.storage.local.get(["citrus_statuses"], data => {
+    browser.storage.local.get(["citrus_statuses"]).then(data => {
       const map = data.citrus_statuses || {};
+
       for (const contestName in newStatus) {
         map[contestName] = {
           ...(map[contestName] || {}),
           ...newStatus[contestName]
         };
       }
-      chrome.storage.local.set({ citrus_statuses: map }, () => sendResponse({ ok: true }));
+
+      return browser.storage.local.set({
+        citrus_statuses: map
+      });
+    }).then(() => {
+      sendResponse({ ok: true });
     });
 
     return true;

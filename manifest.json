@@ -42,9 +42,8 @@
     }
   },
   "background": {
-    "service_worker": "background.js"
+    "scripts": ["background.js"]
   },
-  "options_page": "popup/options.html",
   "web_accessible_resources": [
     {
       "resources": [
